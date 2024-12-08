@@ -1,0 +1,217 @@
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Form Container */
+.loginn-container {
+    background-color: white;
+    padding: 1.375rem; /* 22px */
+    width: 30.125rem; /* 370px */
+    border-radius: 0.25rem; /* 4px */
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Form Logo Styling */
+.formlogoo {
+    height: 2.3rem; /* 32px */
+    margin-bottom: 0.100rem; /* 10px */
+    margin-top: 1.1625rem; /* 25px */
+    margin-bottom: 1.8rem;
+}
+
+
+.loginn-container p {
+    font-size: 0.9375rem; /* 15px */
+    margin: 0.625rem 0 1.875rem; /* 10px 0 30px */
+    color: #666;
+    margin-left: 1.125rem; /* 18px */
+    margin-right: 1.25rem; /* 20px */
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+#no-delete {
+    display: block; /* Make each link take up its own line */
+    text-align: center; /* Center-align the text */
+    margin-top: 2rem; /* Add some space above each link */
+    font-size: 15px;
+    color: #1269d3;
+}
+
+#delete {
+    display: block; /* Make each link take up its own line */
+    text-align: center; /* Center-align the text */
+    margin-top: 1.5rem; /* Add some space above each link */
+    font-size: 13px;
+    color: #1269d3;
+    
+}
+
+
+.captcha-background {
+    background-color: #f0f0f0;
+    padding: 1.25rem; /* 20px */
+    border: 1px solid #f2f2fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9.8rem; /* 90px */
+    margin-top: 0rem; /* 22px */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Styling for the countdown timer */
+.captcha-timer {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Spacing between time units */
+    padding: 1rem 0; /* Padding around the entire timer */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Styling for each time unit with rounded background */
+.time-unit {
+    font-size: 2.8rem; /* Adjust font size */
+    color: #0615eb;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem 0.7rem; /* Padding inside each time unit */
+    background-color: #f4d50b;  /* Bright color for time units */
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center;
+    min-width: 60px; /* Fixed width for consistency */
+    margin: 10px;
+}
+
+/* Styling for the label above each time unit */
+.label1 {
+    font-size: 0.6em; /* Smaller font size for the label */
+    color: #ffffff; /* White color for labels */
+    text-transform: uppercase;
+    margin-bottom: 0.2rem; /* Space between label and time value */
+    opacity: 0.8; /* Slightly faded for subtlety */
+}
+
+/* Styling for the actual time value */
+.time-value {
+    font-size: 2.8rem; /* Adjust font size for time numbers */
+    color: #333dcd;
+    font-weight: bold;
+}
+
+/* Hover effect for the time units */
+.time-unit:hover {
+    background-color: #e0c20d; /* Change background color on hover */
+    color: #0615eb; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Styling for the text above the countdown */
+.captchaa-text {
+    font-family: 'Roboto Condensed', sans-serif; /* Font style */
+    font-size: 1.2rem;
+    color: #f51f1f; /* Text color */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: -0.6rem; /* Space between text and countdown timer */
+}
+
+/* Styling for the captcha background */
+.captcha-background {
+    display: flex;
+    flex-direction: column; /* Stack text and timer vertically */
+    align-items: center;    /* Center elements horizontally */
+    justify-content: center; /* Ensure both are centered vertically */
+    padding: 20px;
+}
+
+/* Styling for the countdown timer */
+.captcha-timer {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Spacing between time units */
+    padding: 1rem 0; /* Padding around the entire timer */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Styling for each time unit with rounded background */
+.time-unit {
+    font-size: 2.8rem; /* Adjust font size */
+    color: #fbfbfb;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem 0.7rem; /* Padding inside each time unit */
+    background-color: #649b1c; /* Bright color for time units */
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center;
+    min-width: 60px; /* Fixed width for consistency */
+    margin: 10px;
+}
+
+/* Styling for the label above each time unit */
+.label1 {
+    font-size: 0.6em; /* Smaller font size for the label */
+    color: #ffffff; /* White color for labels */
+    text-transform: uppercase;
+    margin-bottom: 0.2rem; /* Space between label and time value */
+    opacity: 0.8; /* Slightly faded for subtlety */
+}
+
+/* Styling for the actual time value */
+.time-value {
+    font-size: 2.8rem; /* Adjust font size for time numbers */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+
+/* Styling for the text above the countdown */
+.captchaa-text {
+    font-family: 'Roboto Condensed', sans-serif; /* Font style */
+    font-size: 1.2rem;
+    color: #f51f1f; /* Text color */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: -0.6rem; /* Space between text and countdown timer */
+}
+/* Pulsing effect animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+

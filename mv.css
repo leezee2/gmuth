@@ -1,0 +1,138 @@
+/* Tablet (766px and below) */
+@media (max-width: 766px) {
+    .header {
+        margin-bottom: 0rem; /* Adjust spacing for mobile */
+        border: 1.5px solid #ccc; /* Add 2px grey border */
+    }
+    
+
+    .loginn-container {
+        width: 23.125rem; /* Maintain form width */
+        margin-top: 0rem; /* Adjust spacing for tablets */
+        margin-bottom: -150px; /* Ensure proper spacing between form and footer */
+    }
+
+    .footer {
+        background-color: #919090;
+        padding: 1.3rem 0; /* Increased padding */
+        text-align: center;
+        margin-top: 10.25rem; /* Ensure proper spacing for tablets */
+       
+    }
+
+    .footer nav a {
+        color: #f6f6f6;
+        margin: 0 0.625rem; /* 10px */
+        font-size: 1.0rem; /* 15px */
+        text-decoration: none;
+        display: block;
+        
+        
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-button {
+        margin-top: 10; /* Adjust top margin */
+        margin-left: 1; /* Adjust left margin */
+        margin-bottom: 2.625rem; /* Adjust bottom margin */
+        width: 93%; /* Ensure button width fits the form */
+    }
+
+    form {
+        margin-left: -1.5rem; /* Adjust left margin for tablets */
+        margin-right: -1.5rem; /* Adjust right margin for tablets */
+    }
+}
+
+/* Mobile (368px and below) */
+@media (max-width: 368px) {
+    
+    .loginn-container {
+        width: calc(100% - 1rem); /* Adjust width for mobile */
+        margin-top: 0; /* Adjust spacing for mobile */
+        margin-bottom: 0; /* Adjust spacing for mobile */
+    }
+
+  
+
+    .login-button {
+        width: calc(100% - 1rem); /* Adjust button width for mobile */
+    }
+
+    form {
+        margin-left: 0.5rem; /* Adjust margins for mobile */
+        margin-right: 0.5rem; /* Adjust margins for mobile */
+    }
+}
+
+/* Tablet (766px and below) */
+@media (max-width: 766px) {
+    .header {
+        margin-bottom: 0rem; /* Adjust spacing for tablets */
+    }
+
+    .login-container {
+        width: 23.125rem; /* Maintain form width */
+        margin-top: 0rem; /* Adjust spacing for tablets */
+        margin-bottom: -150px; /* Ensure proper spacing between form and footer */
+    }
+
+    .footer {
+        background-color: #919090;
+        padding: 2rem 0; /* Increased padding */
+        text-align: center;
+        margin-top: 10.25rem; /* Ensure proper spacing for tablets */
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-button {
+        margin-top: 0; /* Adjust top margin */
+        margin-left: 1; /* Adjust left margin */
+        margin-bottom: 2.625rem; /* Adjust bottom margin */
+        width: 93%; /* Ensure button width fits the form */
+    }
+
+    form {
+        margin-left: -1.5rem; /* Adjust left margin for tablets */
+        margin-right: -1.5rem; /* Adjust right margin for tablets */
+    }
+}
+
+/* Mobile (368px and below) */
+@media (max-width: 368px) {
+    .login-container {
+        width: calc(100% - 1rem); /* Adjust width for mobile */
+        margin-top: 0; /* Adjust spacing for mobile */
+        margin-bottom: 0; /* Adjust spacing for mobile */
+    }
+
+    .footer {
+        background-color: #919090;
+        padding: 4rem 0; /* Increased height for mobile */
+        text-align: center;
+        margin-top: 0; /* Ensure proper spacing for mobile */
+    }
+
+    .login-button {
+        width: calc(100% - 1rem); /* Adjust button width for mobile */
+    }
+
+    form {
+        margin-left: 0.5rem; /* Adjust margins for mobile */
+        margin-right: 0.5rem; /* Adjust margins for mobile */
+    }
+}

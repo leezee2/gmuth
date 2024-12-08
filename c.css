@@ -1,0 +1,468 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background-color: #ffffff;
+    padding: 0.425rem 1.25rem; /* 10px 20px */
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.125rem; /* 50px */
+    margin-top: 5px;
+}
+
+/* Line above the header */
+.header::before {
+    content: "";
+    display: block;
+    height: 4px; /* Height of the line */
+    background-color: #f4d50b; /* Blue line color */
+    position: absolute;
+   
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Ensure the line is above the header background but below header content */
+    margin-top: -56px;
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* 10px */
+    margin-left: -0.2rem;
+   
+}
+
+/* Logo Styling */
+.logo {
+    height: 2.3rem; /* 40px */
+    margin-bottom: 0;
+}
+
+/* Account Text Styling */
+.account-text {
+    color: #6a6464;
+    font-size: 1.3rem; /* 30px */
+    margin-left: 0.5125rem; /* -5px */
+    font-weight: 50px;
+    font-family: 'WebdeSans, Arial, Helvetica, sans-serif;
+    
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Form Container */
+.login-container {
+    background-color: white;
+    padding: 1.375rem; /* 22px */
+    width: 30.125rem; /* 370px */
+    border-radius: 0.25rem; /* 4px */
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Form Logo Styling */
+.formlogo {
+    height: 3.5rem; /* 32px */
+    margin-bottom: 0.100rem; /* 10px */
+    margin-top: 1.1625rem; /* 25px */
+    margin-bottom: 1.5rem;
+}
+
+.login-container h1 {
+    font-family: Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3125rem; /* 21px */
+    color: #6a6464;
+    margin: 1.6875rem 0; /* 27px 0 */
+    font-weight: 510;
+    margin-top: 1.1875rem; /* 19px */
+}
+
+.login-container p {
+    font-size: 0.9375rem; /* 15px */
+    margin: 0.625rem 0 1.875rem; /* 10px 0 30px */
+    color: #666;
+    margin-left: 1.125rem; /* 18px */
+    margin-right: 1.25rem; /* 20px */
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: normal;
+    font-size: 0.8125rem; /* 13px */
+    margin-bottom: 0.3125rem; /* 5px */
+    text-align: left;
+    color: #6a6464;
+    margin-left: 0.625rem; /* 10px */
+}
+
+.captcha-container .captcha-label {
+    font-size: 0.8125rem; /* 13px */
+    font-weight: normal;
+    margin: 1.25rem 0 0.3125rem; /* 20px 0 5px */
+    text-align: left;
+    color: #6a6464;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    padding: 0.4375rem; /* 7px */
+    margin-bottom: 1.125rem; /* 18px */
+    border: 1px solid #ccc;
+    border-radius: 0.25rem; /* 4px */
+    width: 100%;
+    font-size: 0.875rem; /* 14px */
+}
+
+.password-container {
+    position: relative;
+    width: 93%;
+    margin-left: 0.625rem; /* 10px */
+}
+
+input[type="email"] {
+    padding-right: 2.5rem; /* 40px */
+    margin-left: 0.625rem; /* 10px */
+    width: 93%;
+}
+
+input[type="password"] {
+    padding-right: 2.5rem; /* Space for the toggle button */
+    margin-bottom: 1.125rem; /* 18px */
+    border: 1px solid #ccc;
+    border-radius: 0.25rem; /* 4px */
+    width: 100%; /* Fill the container width */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.625rem; /* 10px */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-password img {
+    width: 1.25rem; /* 20px */
+    margin-bottom: 0.9375rem; /* 15px */
+    margin-right: 0; /* Fixed this to 0px */
+    height: 0.875rem; /* 14px */
+}
+
+.captcha-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.captcha-container {
+    text-align: left;
+    margin-bottom: 0.9375rem; /* 15px */
+}
+
+
+
+
+#no-delete {
+    display: block; /* Make each link take up its own line */
+    text-align: center; /* Center-align the text */
+    margin-top: 2rem; /* Add some space above each link */
+    font-size: 15px;
+    color: #1269d3;
+}
+
+#delete {
+    display: block; /* Make each link take up its own line */
+    text-align: center; /* Center-align the text */
+    margin-top: 1.5rem; /* Add some space above each link */
+    font-size: 13px;
+    color: #1269d3;
+    
+}
+
+
+.captcha-text {
+    margin-left: 0;
+    position: relative;
+    z-index: 1;
+    font-size: 1.25rem; /* 20px */
+    color: #6a6464;
+}
+
+.captcha-icon img {
+    width: 1.5rem; /* 24px */
+    height: auto;
+    margin-left: 0.5625rem; /* 9px */
+}
+
+.captcha-wrapper {
+    margin-bottom: 0.9375rem; /* 15px */
+    width: 93%;
+    margin-left: 0.625rem; /* 10px */
+}
+
+.captcha-container label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.25rem; /* 20px */
+    margin: 0.25rem 0 0.3125rem; /* 4px 0 5px */
+}
+
+.captcha-background {
+    background-color: #f0f0f0;
+    padding: 1.25rem; /* 20px */
+    border: 1px solid #f2f2fb;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9.8rem; /* 90px */
+    margin-top: 0rem; /* 22px */
+    position: relative;
+    overflow: hidden;
+}
+
+.captcha-background .captcha-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: 14.375rem; /* 230px */
+    height: auto;
+    position: absolute;
+}
+/* Styling for the captcha background */
+.captcha-background {
+    display: flex;
+    flex-direction: column; /* Stack text and timer vertically */
+    align-items: center;    /* Center elements horizontally */
+    justify-content: center; /* Ensure both are centered vertically */
+    padding: 20px;
+}
+
+/* Styling for the countdown timer */
+.captcha-timer {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Spacing between time units */
+    padding: 1rem 0; /* Padding around the entire timer */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Styling for each time unit with rounded background */
+.time-unit {
+    font-size: 2.8rem; /* Adjust font size */
+    color: #0615eb;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem 0.7rem; /* Padding inside each time unit */
+    background-color: #f4d50b;  /* Bright color for time units */
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center;
+    min-width: 60px; /* Fixed width for consistency */
+    margin: 10px;
+}
+
+/* Styling for the label above each time unit */
+.label {
+    font-size: 0.6em; /* Smaller font size for the label */
+    color: #ffffff; /* White color for labels */
+    text-transform: uppercase;
+    margin-bottom: 0.2rem; /* Space between label and time value */
+    opacity: 0.8; /* Slightly faded for subtlety */
+}
+
+/* Styling for the actual time value */
+.time-value {
+    font-size: 2.8rem; /* Adjust font size for time numbers */
+    color: #333dcd;
+    font-weight: bold;
+}
+
+/* Hover effect for the time units */
+.time-unit:hover {
+    background-color: #e0c20d; /* Change background color on hover */
+    color: #0615eb; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Styling for the text above the countdown */
+.captcha-text {
+    font-family: 'Roboto Condensed', sans-serif; /* Font style */
+    font-size: 1.2rem;
+    color: #f51f1f; /* Text color */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: -0.6rem; /* Space between text and countdown timer */
+}
+
+
+/* Pulsing effect animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.login-button {
+    background-color: #f4d50b;
+    color: white;
+    padding: 0.425rem; /* 10px */
+    border: none;
+    border-radius: 0.25rem; /* 4px */
+    cursor: pointer;
+    font-size: 1rem; /* 16px */
+    margin-top: -1.875rem; /* -30px */
+    margin-left: 0.625rem; /* 10px */
+    margin-bottom: 0.625rem; /* 10px */
+    width: 93%;
+}
+
+.login-button:hover {
+    background-color: #d7bf26;
+}
+
+/* Footer */
+.footer {
+    background-color: #919090;
+    padding: 0.9375rem 0; /* 15px 0 */
+    text-align: center;
+    margin-top: 6.25rem; /* 100px */
+}
+
+.footer nav a {
+    color: #f6f6f6;
+    margin: 0 0.625rem; /* 10px */
+    font-size: 0.9375rem; /* 15px */
+    text-decoration: none;
+    
+}
+
+.footer nav a:hover {
+    text-decoration: underline;
+}
+
+/* Tablet (766px and below) */
+@media (max-width: 766px) {
+    .header {
+        margin-bottom: 0rem; /* Adjust spacing for mobile */
+        border: 1.5px solid #ccc; /* Add 2px grey border */
+    }
+    
+
+    .login-container {
+        width: 23.125rem; /* Maintain form width */
+        margin-top: 0rem; /* Adjust spacing for tablets */
+        margin-bottom: -150px; /* Ensure proper spacing between form and footer */
+    }
+
+    .footer {
+        background-color: #919090;
+        padding: 1.3rem 0; /* Increased padding */
+        text-align: center;
+        margin-top: 10.25rem; /* Ensure proper spacing for tablets */
+       
+    }
+
+    .footer nav a {
+        color: #f6f6f6;
+        margin: 0 0.625rem; /* 10px */
+        font-size: 1.0rem; /* 15px */
+        text-decoration: none;
+        display: block;
+        
+        
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-button {
+        margin-top: 10; /* Adjust top margin */
+        margin-left: 1; /* Adjust left margin */
+        margin-bottom: 2.625rem; /* Adjust bottom margin */
+        width: 93%; /* Ensure button width fits the form */
+    }
+
+    form {
+        margin-left: -1.5rem; /* Adjust left margin for tablets */
+        margin-right: -1.5rem; /* Adjust right margin for tablets */
+    }
+}
+
+/* Mobile (368px and below) */
+@media (max-width: 368px) {
+    
+    .login-container {
+        width: calc(100% - 1rem); /* Adjust width for mobile */
+        margin-top: 0; /* Adjust spacing for mobile */
+        margin-bottom: 0; /* Adjust spacing for mobile */
+    }
+
+  
+
+    .login-button {
+        width: calc(100% - 1rem); /* Adjust button width for mobile */
+    }
+
+    form {
+        margin-left: 0.5rem; /* Adjust margins for mobile */
+        margin-right: 0.5rem; /* Adjust margins for mobile */
+    }
+}
