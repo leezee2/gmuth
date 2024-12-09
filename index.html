@@ -40,49 +40,48 @@
             align-items: center;
         }
 
-        /* New Spinner Styles */
-.spinner {
-    border: 8px solid #f3f3f3;  /* Light gray border */
-    border-top: 8px solid #3498db; /* Blue border for spinning effect */
-    border-radius: 50%;  /* Ensure it is round */
-    width: 100px;  /* Increased size */
-    height: 100px;  /* Increased size */
-    animation: spin 1.5s linear infinite;  /* Faster spin animation */
-}
+        /* Spinner styles */
+        .spinner {
+            border: 10px solid #d3ba15a5; /* Thicker, lighter border */
+            border-top: 10px solid #0615eb; /* Orange spinner for visibility */
+            border-radius: 70%;
+            width: 80px;  /* Larger spinner */
+            height: 80px;  /* Larger spinner */
+            animation: spin 2s linear infinite;
+        }
 
-/* Spinner spin animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        /* Spinner spin animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-/* Spinner text */
-#spinner-container p {
-    margin-top: 15px;  /* Adjust space between spinner and text */
-    color: #3498db;  /* Matching blue color */
-    font-size: 20px;  /* Slightly smaller text */
-    font-weight: bold;  /* Bold text */
-    text-transform: uppercase;  /* Uppercase letters */
-    letter-spacing: 1px;  /* Increase spacing between letters */
-    animation: pulse 1.5s ease-in-out infinite;  /* Pulse animation for text */
-}
+        /* Spinner text (placed below the spinner) */
+        #spinner-container p {
+            margin-top: 20px;  /* Larger space between spinner and text */
+            color: #000000;  /* Bright orange to make it noticeable */
+            font-size: 22px;  /* Larger font size */
+            font-weight: 900;  /* Bold weight */
+            text-transform: uppercase;  /* Make the text uppercase for extra emphasis */
+            letter-spacing: 2px;  /* Increase letter spacing for clarity */
+            animation: pulse 2s infinite ease-in-out;  /* Slow pulse effect with 2 seconds duration */
+        }
 
-/* Pulse animation for text */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
+        /* Pulse animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);  /* Normal size */
+                opacity: 1;  /* Full opacity */
+            }
+            50% {
+                transform: scale(1.1);  /* Slightly larger */
+                opacity: 0.8;  /* Fade slightly */
+            }
+            100% {
+                transform: scale(1);  /* Normal size again */
+                opacity: 1;  /* Full opacity */
+            }
+        }
     </style>
 </head>
 <body>
